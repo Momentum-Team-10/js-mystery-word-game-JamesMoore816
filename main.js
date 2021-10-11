@@ -20,15 +20,17 @@ let R = document.getElementById('R');
 let S = document.getElementById('S');
 let T = document.getElementById('T');
 let U = document.getElementById('U');
-let W = document.getElementById('V');
-let V = document.getElementById('W');
+let V = document.getElementById('V');
+let W = document.getElementById('W');
 let X = document.getElementById('X');
 let Y = document.getElementById('Y');
 let Z = document.getElementById('Z');
 let mysteryWord = document.getElementById('mysteryWord');
-let guessDisplay = document.getElementById('guesses')
+let guessDisplay = document.getElementById('guesses');
+let end = document.getElementById('endText');
 guessesRemaining = 5;
 guessDisplay.innerText = guessesRemaining;
+
 
 let deadLetters = document.getElementById('deadLetters');
 let chosenWord = words[Math.floor(Math.random() * words.length)]
@@ -39,7 +41,7 @@ wordDisplay = wordDisplay.fill('_');
 mysteryWord.innerText = wordDisplay.join(" ");
 
 function checkLetter(letter) {
-    if (guessesRemaining > 0 && deadLetters.innerText.includes(letter) === false) {
+    if (guessesRemaining > 0 && deadLetters.innerText.includes(letter) === false && wordDisplay.includes("_")) {
         for (let i = 0; i < chosenWord.length; i++) {
             if (letter === chosenWord[i]) {
                 wordDisplay[i] = letter;
@@ -50,7 +52,13 @@ function checkLetter(letter) {
             deadLetters.innerText += letter;
             guessesRemaining--;
             guessDisplay.innerText = guessesRemaining;
+            if (guessesRemaining === 0) {
+                end.innerText = "You lose. The mystery word was " + chosenWord +  ".";
+            }
         }
+    }
+    if (wordDisplay.includes("_") === false) {
+        end.innerText = "You win!";
     }
 }
 
