@@ -45,6 +45,11 @@ h1 {
     margin: 1px;
 }
 
+.row p:hover {
+    background-color: rgb(173, 204, 240);
+    border-color:rgb(57, 115, 182)
+}
+
 .remaining {
     display: flex;
 }

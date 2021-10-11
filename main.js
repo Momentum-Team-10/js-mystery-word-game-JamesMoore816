@@ -1,4 +1,3 @@
-// let alphabet=['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
 let A = document.getElementById('A');
 let B = document.getElementById('B');
 let C = document.getElementById('C');
@@ -27,11 +26,9 @@ let Y = document.getElementById('Y');
 let Z = document.getElementById('Z');
 let mysteryWord = document.getElementById('mysteryWord');
 let guessDisplay = document.getElementById('guesses');
-let end = document.getElementById('endText');
 guessesRemaining = 5;
 guessDisplay.innerText = guessesRemaining;
-
-
+let end = document.getElementById('endText');
 let deadLetters = document.getElementById('deadLetters');
 let chosenWord = words[Math.floor(Math.random() * words.length)]
 chosenWord = chosenWord.toUpperCase();
@@ -53,7 +50,7 @@ function checkLetter(letter) {
             guessesRemaining--;
             guessDisplay.innerText = guessesRemaining;
             if (guessesRemaining === 0) {
-                end.innerText = "You lose. The mystery word was " + chosenWord +  ".";
+                end.innerText = "You lose. The mystery word was " + chosenWord + ".";
             }
         }
     }
